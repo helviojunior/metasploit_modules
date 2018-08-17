@@ -184,12 +184,16 @@ class MetasploitModule < Msf::Post
                     found =1
                     if prog2check.downcase == (x['name'].downcase)
                             sleep(0.5)
-                                        print_line "."
                             found = 0
                     end
             end
     end
     r.close
+
+    if !session.fs.file.exist?(mem_dump)
+        print_error("Remote memory dump file #{mem_dump} not found!")
+        return false
+    end
 
     print_status("Downloading memory dump to #{tmp}")
     session.fs.file.download_file(tmp, mem_dump)
