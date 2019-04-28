@@ -111,7 +111,6 @@ class MetasploitModule < Msf::Post
       files.push('msvcp110.dll')
       files.push('msvcr110.dll')
       files.push('RamCapture64.exe')
-      files.push('ramcapturedriver.cat')
       files.push('RamCaptureDriver64.sys')
 
       prog2check = 'RamCapture64.exe'
